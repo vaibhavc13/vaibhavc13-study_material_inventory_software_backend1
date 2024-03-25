@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #b7efff;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 30px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #ffffff;
+            padding: 60px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        p {
+            margin: 10px 0;
+            color: #444;
+            font-size: 16px;
+        }
+        select, input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="#555" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px top 50%;
+            background-size: 20px auto;
+            cursor: pointer;
+        }
+        input[type="text"] {
+            box-sizing: border-box;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+            color: #333;
+        }
+        .update-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            float: right;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        .update-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edit</h1>
+    
+    <ul>
+        <% for (let i = 0; i < resut.length; i++) { %>
+            <li>
+                <form action="/update/<%= resut[i]._id %>" method="post">
+                    <input type="hidden" name="collection" value="<%= resut[i].collection %>">
+                    <input type="hidden" name="link" value="<%= resut[i].link %>">
+
+                    <%= resut[i].collection %>"
+                    <p>id: <%= resut[i]._id %></p>
+                    <p>Subject: <%= resut[i].subject %></p>
+       
+                    <p>Module / Exam Term: <%= resut[i].module %></p>
+                   
+                    <p>Semester: <%= resut[i].semester %></p>
+                    
+                    <p>Link: <%= resut[i].link %></p>
+                    
+                    <input class="update-button" type="submit" value="Delete">
+                </form>
+            </li>
+        <% } %>
+    </ul>
+</body>
+</html>
+
